@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+<form action="" method="post">
+
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Zmień">
+
+     {% load static %}
+<img src="{% static "baza/tlo.jpg" %}" alt="My image"/>
+
+</form>

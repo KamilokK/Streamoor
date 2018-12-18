@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="post" style = "text-align: right">
+
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Zapisz">
+
+     {% load static %}
+
+    {% endblock %}
+
+
+</form>
