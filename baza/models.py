@@ -11,13 +11,10 @@ STREAM_TYPE = (
 
 
 class StreamoorUser(models.Model):
-    name = models.CharField(max_length=64, null=False)
-    email = models.EmailField()
-    user_stream= models.IntegerField(choices=STREAM_TYPE)
-    password = models.CharField(max_length=32)
-    create_date = models.DateTimeField(auto_now_add=True)
 
-    user = models.OneToOneField(User)
+    user_stream= models.IntegerField(choices=STREAM_TYPE)
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 

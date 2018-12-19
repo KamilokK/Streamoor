@@ -1,0 +1,15 @@
+{% block content %}
+
+
+ <h2>Oferty</h2>
+
+ {% for user in users %}
+
+ <li> User:  {{user.username}}
+     Oferuje: {{user.streamooruser.user_stream}}</li>
+
+
+ {% endfor %}
+
+
+ {% endblock %}

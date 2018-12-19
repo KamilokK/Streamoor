@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 
-{% block content %}
 
-    {% if username == AnonymousUser %}
-        Nie znaleziono użytkownika!
-    {% endif %}
+{% block content %}
 
 
   <form method="post">
@@ -13,6 +10,6 @@
         <input type="submit" value="Zaloguj">
   </form>
 
-    <p><a href="/AddUser"> Zarejestruj się</a></p>
+    <p><a href="/Streamoor"> Załóż konto</a></p>
 
 {% endblock %}
