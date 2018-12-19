@@ -5,8 +5,8 @@
 
  {% for user in users %}
 
- <li> User:  {{user.username}}
-     Oferuje: {{user.streamooruser.user_stream}}</li>
+<li> User: <a href="/User/{{user.id}}"</a> {{user.username}}</li>
+     <li>Oferuje: {{user.streamooruser.get_user_stream_display}}</li>
 
 
  {% endfor %}

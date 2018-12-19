@@ -1,0 +1,18 @@
+{% block content %}
+
+
+ <h2>Oferty</h2>
+
+
+ {% for streamooruser in streamoorusers %}
+
+
+<li> User: {{streamooruser.user}} </li>
+
+<li><a href="/User/{{streamooruser.user.id}}">Oferuje: {{streamooruser.get_user_stream_display}}</a></li>
+
+
+ {% endfor %}
+
+
+ {% endblock %}

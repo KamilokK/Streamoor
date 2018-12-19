@@ -22,10 +22,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^Streamoor$', MainView.as_view(), name="main"),
     url(r'^end', EndView.as_view(), name="dodaj"),
-    #url(r'^EditUser/(?P<pk>(\d)+)', EditUserView.as_view()),
-    #url(r'^DeleteUser/(?P<pk>(\d)+)', StreamoorUserDelete.as_view()),
+    url(r'^EditUser/(?P<pk>(\d)+)', StreamoorUserUpdate.as_view()),
+    url(r'^DeleteUser/(?P<pk>(\d)+)', StreamoorUserDelete.as_view()),
     url(r'^login$', LoginView.as_view()),
     url(r'^logout$', LogoutView.as_view()),
     url(r'^deal$', DealView.as_view()),
     url(r'^User/(?P<pk>(\d)+)', UserProfile.as_view()),
-]
+    url(r'^netflix', SearchNetflix.as_view()),
+    url(r'^hbo', SearchHBO.as_view()),
+    url(r'^amazon', SearchAmazon.as_view()),
+
+    ]

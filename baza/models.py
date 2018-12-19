@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 STREAM_TYPE = (
     (1, "Netflix"),
-    (2, "HboGo"),
+    (2, "HBO GO"),
     (3, "Amazon Prime"),
 )
 
@@ -18,6 +18,9 @@ class StreamoorUser(models.Model):
 
 
 
-class UsersStream(models.Model):
-    user_stream = models.ForeignKey(StreamoorUser, on_delete=models.CASCADE)
-    stream_type = models.IntegerField(choices=STREAM_TYPE, null=False)
+
+
+class UsersConnection(models.Model):
+    user_1 = models.ForeignKey(StreamoorUser, on_delete=models.CASCADE, related_name='pierwszy')
+    user_2 = models.ForeignKey(StreamoorUser, on_delete=models.CASCADE, related_name='drugi')
+

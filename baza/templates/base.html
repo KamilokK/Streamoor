@@ -5,6 +5,8 @@
 
     <p>Witaj {{ user }}</p>
           <p><a href="http://127.0.0.1:8000/logout">Wyloguj się</a></p>
+    <p></p><a href="/EditUser/{{user.id}}}">Edytuj profil</a></p>
+     <p></p><a href="/User/{{user.id}}}">Profil</a></p>
     {% else %}
         <a href="http://127.0.0.1:8000/login">Zaloguj się</a>
     {% endif %}

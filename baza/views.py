@@ -10,11 +10,10 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.detail import DetailView
+from django.conf import settings
 
 
 # Create your views here.
-
-
 
 class EndView(View):
     def get(self, request):
@@ -78,5 +77,46 @@ class UserProfile(View):
         user = User.objects.get(id= pk)
         return render(request, "user.html", {"name": user.username, "email": user.email,
                                                           "user_stream": user.streamooruser.user_stream})
+
+class StreamoorUserUpdate(UpdateView):
+
+  model = User
+  fields = ['username', 'email', 'password']
+  template_name = 'stremooruser_update_form.html'
+  success_url = '/Streamoor'
+
+
+class StreamoorUserDelete(DeleteView):
+
+  model = User
+  template_name = 'stremooruser_confirm_delete.html'
+  success_url = '/Streamoor'
+
+
+
+class SearchNetflix(View):
+
+    def get(self, request):
+        users = StreamoorUser.objects.exclude(user_stream=1)
+        return render(request, "search.html", {"users": users})
+
+
+class SearchHBO(View):
+
+    def get(self, request):
+        users = StreamoorUser.objects.exclude(user_stream=2)
+        return render(request, "search.html", {"users": users})
+
+
+
+class SearchAmazon(View):
+
+    def get(self, request):
+        streamoorusers = StreamoorUser.objects.exclude(user_stream=3)
+        return render(request, "search.html", {"streamoorusers": streamoorusers})
+
+
+
+
 
 #class MakeDeal(View):

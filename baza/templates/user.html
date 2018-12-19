@@ -5,7 +5,15 @@
 
  <p> {{name}} </p>
 <p> {{email}} </p>
-<p>{{user.streamooruser.user_stream}}</p>
+<p>{{user.streamooruser.get_user_stream_display}}</p>
 
+<a href="/EditUser/{{user.id}}}">Edytuj profil</a>
+<a href="/DeleteUser/{{user.id}}}">Usuń konto</a>
+
+<h2>Jakiego streamu szukasz?</h2>
+
+<p><a href="/netflix">Netflix</a></p>
+<p><a href="/hbo">HBO GO</a></p>
+<p><a href="/amazon">Amazon Prime</a></p>
 
  {% endblock %}
