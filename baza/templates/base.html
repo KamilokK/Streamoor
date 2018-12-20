@@ -26,11 +26,13 @@
                         <ul>
                             {% if user.is_authenticated %}
                             <li>
-                                <p>Witaj {{ user }}</p>
+
+                                <p> jesteś zalogowany jako {{ user }}</p>
                             </li>
-                            <li><a href="http://127.0.0.1:8000/logout">Wyloguj się</a></li>
-                            <li><a href="/EditUser/{{user.id}}}">Edytuj profil</a></li>
+
                             <li><a href="/User/{{user.id}}}">Profil</a></li>
+                            <li><a href="/deal">Zobacz oferty</a></li>
+                               <li><a href="http://127.0.0.1:8000/logout">Wyloguj się</a></li>
 
                             {% else %}
 
@@ -50,7 +52,7 @@
             <h1>Oglądaj co chcesz <br />
                 <span class="bold">Streamoor</span> </h1>
             {% block content %}
-            <div class="button_cont" align="center"><a class="example_d" href="http://127.0.0.1:8000/Streamoor" target="_blank"
+            <div class="button_cont" align="center"><a class="example_d" href="http://127.0.0.1:8000/AddUser" target="_blank"
                     rel="nofollow noopener">Załóż
                     konto</a></div>
             {% endblock %}

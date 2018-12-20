@@ -32,9 +32,9 @@
  {% for streamooruser in streamoorusers %}
 
 
-<li> {{streamooruser.user}} </li>
+<li> {{streamooruser.user}}
 
-<li><a href="/User/{{streamooruser.user.id}}">Oferuje: {{streamooruser.get_user_stream_display}}</a></li>
+oferuje:<button type="button" class="btn btn-link"><a href="/User/{{streamooruser.user.id}}">{{streamooruser.get_user_stream_display}}</a></a></button>
 
 
  {% endfor %}

@@ -1,0 +1,26 @@
+<table class = table table-striped>
+    <thead>
+        <tr>
+            <th>Cover</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users  %}
+             <tr>
+
+                 <td>
+                     <a href="/User/{{user.id}}">{{user.username}}<</a>
+
+                         Edytuj
+                     </a>
+                     <p> Oferuje: {{user.streamooruser.get_user_stream_display}} </p>
+
+                         Kasuj
+                     </a>
+                 </td>
+             </tr>
+        {%  endfor %}
+    </tbody>
+
+    </table>

@@ -1,4 +1,7 @@
 
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,18 +11,73 @@
 
 </head>
 
-{% block content %}
+<body>
+    <section>
+        <div class="row bg1">
 
 
-    <span class="bold">Oferty</span>
+            <header>
+                <div class="container">
 
- {% for user in users %}
 
-<li> User: <a href="/User/{{user.id}}"</a> {{user.username}}</li>
-     <li>Oferuje: {{user.streamooruser.get_user_stream_display}}</li>
+                    <nav class="userInfo">
 
+
+                        {% block header %}
+                        <ul>
+                            {% if user.is_authenticated %}
+                            <li>
+                                <p>jesteś zalogowany jako {{ user }}</p>
+                            </li>
+
+                            <li><a href="/User/{{user.id}}}">Profil</a></li>
+
+                               <li><a href="http://127.0.0.1:8000/logout">Wyloguj się</a></li>
+
+                            {% else %}
+
+                            <li><a href="http://127.0.0.1:8000/login">Zaloguj się</a></li>
+
+
+                            {% endif %}
+                        </ul>
+                        {% endblock %}
+
+                    </nav>
+            </header>
+    </section>
+
+
+            {% block content %}
+
+    <h2>Aktualne oferty:</h2>
+
+     {% for user in users %}
+
+    <table>
+        <tr>
+    <td>{{user.username}}</td>
+        <td>oferuje <button type="button" class="btn btn-primary"><a href="/User/{{user.id}}">{{user.streamooruser.get_user_stream_display}}</a></button></td>
+        </tr>
+
+
+    </table>
 
  {% endfor %}
 
 
  {% endblock %}
+
+
+    <footer>
+        {% block footer %}
+        <p>&copy; Kamilok 2018</p>
+        {% endblock %}
+    </footer>
+
+
+
+
+</body>
+
+</html>

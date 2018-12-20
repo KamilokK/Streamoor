@@ -1,4 +1,53 @@
-{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Streamoor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/main.css" />
+
+</head>
+
+<body>
+    <section>
+        <div class="row bg1">
+
+
+            <header>
+                <div class="container">
+
+
+                    <nav class="userInfo">
+
+
+                        {% block header %}
+                        <ul>
+                            {% if user.is_authenticated %}
+                            <li>
+
+                                <p> jesteś zalogowany jako {{ user }}</p>
+                            </li>
+
+                            <li><a href="/deal">Zobacz oferty</a></li>
+                               <li><a href="http://127.0.0.1:8000/logout">Wyloguj się</a></li>
+
+                            {% else %}
+
+                            <li><a href="http://127.0.0.1:8000/login">Zaloguj się</a></li>
+
+
+                            {% endif %}
+                        </ul>
+                        {% endblock %}
+
+                    </nav>
+            </header>
+    </section>
+    </div>
+
+           {% block content %}
 
 
  <h2>Dane użytkownika</h2>
@@ -7,13 +56,27 @@
 <p> {{email}} </p>
 <p>{{user.streamooruser.get_user_stream_display}}</p>
 
-<a href="/EditUser/{{user.id}}}">Edytuj profil</a>
-<a href="/DeleteUser/{{user.id}}}">Usuń konto</a>
+<button type="button" class="btn btn-primary"><a href="/EditUser/{{user.id}}}">Edytuj profil</a></button>
+<button type="button" class="btn btn-danger"><a href="/DeleteUser/{{user.id}}}">Usuń konto</a>
+</button>
+<h3>Jakiego streamu szukasz?</h3>
 
-<h2>Jakiego streamu szukasz?</h2>
+<button type="button" class="btn btn-link"><a href="/netflix">Netflix</a></button>
+<button type="button" class="btn btn-link"><a href="/hbo">HBO GO</a></button>
+<button type="button" class="btn btn-link"><a href="/netflix"><a href="/hbo">HBO GO</a></button>
 
-<p><a href="/netflix">Netflix</a></p>
-<p><a href="/hbo">HBO GO</a></p>
-<p><a href="/amazon">Amazon Prime</a></p>
 
  {% endblock %}
+
+    <footer>
+        {% block footer %}
+        <p>&copy; Kamilok 2018</p>
+        {% endblock %}
+    </footer>
+
+    </div>
+
+
+</body>
+
+</html>

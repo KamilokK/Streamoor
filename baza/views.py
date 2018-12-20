@@ -15,12 +15,22 @@ from django.conf import settings
 
 # Create your views here.
 
+
+class HomeView(View):
+    def get(self, request):
+        return render(request, "home.html")
+
+
 class EndView(View):
     def get(self, request):
         return render(request, "base.html")
 
-
 class MainView(View):
+    def get(self, request):
+        return render(request, "base.html")
+
+
+class AddUserView(View):
     def get(self, request):
         form = AddUserForm()
         return render(request, "streamooruser_form.html", {'form': form})
@@ -120,7 +130,3 @@ class SearchAmazon(LoginRequiredMixin, View):
         return render(request, "search.html", {"streamoorusers": streamoorusers})
 
 
-
-
-
-#class MakeDeal(View):
