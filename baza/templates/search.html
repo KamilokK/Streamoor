@@ -1,13 +1,38 @@
-{% block content %}
 
 
- <h2>Oferty</h2>
+
+ <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Streamoor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/main.css" />
+
+</head>
+
+<body>
+    <section>
+        <div class="row bg1">
+
+
+            <header>
+                <div class="container">
+
+
+                    <nav class="userInfo">
+
+                     <h1><span class="bold">Oferty</span></h1>
+
+                     {% block content %}
 
 
  {% for streamooruser in streamoorusers %}
 
 
-<li> User: {{streamooruser.user}} </li>
+<li> {{streamooruser.user}} </li>
 
 <li><a href="/User/{{streamooruser.user.id}}">Oferuje: {{streamooruser.get_user_stream_display}}</a></li>
 
@@ -16,3 +41,24 @@
 
 
  {% endblock %}
+
+                    </nav>
+            </header>
+    </section>
+
+
+    <footer>
+        {% block footer %}
+        <p>&copy; Kamilok 2018</p>
+        {% endblock %}
+    </footer>
+
+    </div>
+
+    <!-- tego nie ładuj
+        {% load static %}
+
+    <img src="{% static " baza/tlo.jpg" %}" alt="My image" /> -->
+</body>
+
+</html>

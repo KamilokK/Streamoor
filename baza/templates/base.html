@@ -1,26 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Streamoor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/main.css" />
+
+</head>
+
+<body>
+    <section>
+        <div class="row bg1">
 
 
-    {% block header %}
-    {% if user.is_authenticated %}
-
-    <p>Witaj {{ user }}</p>
-          <p><a href="http://127.0.0.1:8000/logout">Wyloguj się</a></p>
-    <p></p><a href="/EditUser/{{user.id}}}">Edytuj profil</a></p>
-     <p></p><a href="/User/{{user.id}}}">Profil</a></p>
-    {% else %}
-        <a href="http://127.0.0.1:8000/login">Zaloguj się</a>
-    {% endif %}
-    {% endblock %}
-    {% block content %}
-        <a href="http://127.0.0.1:8000/Streamoor">Załóż konto</a>
-    {% endblock %}
-    {% block footer %}
-        <h2>Streamoor</h2>
-        <h3>Oglądaj co chcesz</h3>
-    {% endblock %}
+            <header>
+                <div class="container">
 
 
-  {% load static %}
+                    <nav class="userInfo">
 
- <img src="{% static "baza/tlo.jpg" %}" alt="My image"/>
 
+                        {% block header %}
+                        <ul>
+                            {% if user.is_authenticated %}
+                            <li>
+                                <p>Witaj {{ user }}</p>
+                            </li>
+                            <li><a href="http://127.0.0.1:8000/logout">Wyloguj się</a></li>
+                            <li><a href="/EditUser/{{user.id}}}">Edytuj profil</a></li>
+                            <li><a href="/User/{{user.id}}}">Profil</a></li>
+
+                            {% else %}
+
+                            <li><a href="http://127.0.0.1:8000/login">Zaloguj się</a></li>
+
+
+                            {% endif %}
+                        </ul>
+                        {% endblock %}
+
+                    </nav>
+            </header>
+    </section>
+    </div>
+    <section class="hero">
+        <div class="slogan">
+            <h1>Oglądaj co chcesz <br />
+                <span class="bold">Streamoor</span> </h1>
+            {% block content %}
+            <div class="button_cont" align="center"><a class="example_d" href="http://127.0.0.1:8000/Streamoor" target="_blank"
+                    rel="nofollow noopener">Załóż
+                    konto</a></div>
+            {% endblock %}
+        </div>
+    </section>
+
+    <footer>
+        {% block footer %}
+        <p>&copy; Kamilok 2018</p>
+        {% endblock %}
+    </footer>
+
+    </div>
+
+
+</body>
+
+</html>

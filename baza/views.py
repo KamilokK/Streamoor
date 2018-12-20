@@ -1,4 +1,4 @@
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.template.response import TemplateResponse
 from django.http import HttpResponse
 from django.views import View
@@ -94,23 +94,27 @@ class StreamoorUserDelete(DeleteView):
 
 
 
-class SearchNetflix(View):
+class SearchNetflix(LoginRequiredMixin, View):
+    login_url = "/login"
 
     def get(self, request):
-        users = StreamoorUser.objects.exclude(user_stream=1)
-        return render(request, "search.html", {"users": users})
+        streamoorusers = StreamoorUser.objects.exclude(user_stream=1)
+        return render(request, "search.html", {"streamoorusers": streamoorusers})
 
 
-class SearchHBO(View):
+class SearchHBO(LoginRequiredMixin, View):
+    login_url = "/login"
 
     def get(self, request):
-        users = StreamoorUser.objects.exclude(user_stream=2)
-        return render(request, "search.html", {"users": users})
+        streamoorusers = StreamoorUser.objects.exclude(user_stream=2)
+
+        return render(request, "search.html", {"streamoorusers": streamoorusers})
 
 
 
-class SearchAmazon(View):
+class SearchAmazon(LoginRequiredMixin, View):
 
+    login_url = "/login"
     def get(self, request):
         streamoorusers = StreamoorUser.objects.exclude(user_stream=3)
         return render(request, "search.html", {"streamoorusers": streamoorusers})
