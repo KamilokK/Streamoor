@@ -33,5 +33,6 @@ urlpatterns = [
     url(r'^hbo', SearchHBO.as_view()),
     url(r'^amazon', SearchAmazon.as_view()),
     url(r'^home', HomeView.as_view()),
+]
 
-    ]
+

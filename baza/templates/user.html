@@ -32,6 +32,7 @@
 
                             <li><a href="/deal">Zobacz oferty</a></li>
                                <li><a href="http://127.0.0.1:8000/logout">Wyloguj się</a></li>
+                           <li><a href="http://127.0.0.1:8000/Streamoor">Streamoor</a></li>
 
                             {% else %}
 
@@ -59,7 +60,12 @@
 <button type="button" class="btn btn-primary"><a href="/EditUser/{{user.id}}}">Edytuj profil</a></button>
 <button type="button" class="btn btn-danger"><a href="/DeleteUser/{{user.id}}}">Usuń konto</a>
 </button>
-<h3>Jakiego streamu szukasz?</h3>
+
+    <button type="button" class="btn btn-danger"><a href="mailto:{{user.email}}?subject=Nowa oferta na STREAMOOR!&body=Cześć, chcę się z Tobą wymienić oferuję {{user.streamooruser.get_user_stream_display}}">Wymień się</a></button>
+
+
+
+    <h3>Jakiego streamu szukasz?</h3>
 
 <button type="button" class="btn btn-link"><a href="/netflix">Netflix</a></button>
 <button type="button" class="btn btn-link"><a href="/hbo">HBO GO</a></button>

@@ -7,10 +7,12 @@ from django.urls import reverse_lazy
 from .models import *
 from .forms import *
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.views.generic.detail import DetailView
 from django.conf import settings
+from django.contrib.auth.forms import PasswordChangeForm
+
 
 
 # Create your views here.
@@ -128,5 +130,7 @@ class SearchAmazon(LoginRequiredMixin, View):
     def get(self, request):
         streamoorusers = StreamoorUser.objects.exclude(user_stream=3)
         return render(request, "search.html", {"streamoorusers": streamoorusers})
+
+
 
 
